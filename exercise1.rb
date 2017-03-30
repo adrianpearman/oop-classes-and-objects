@@ -1,36 +1,39 @@
 class BankAccount
   attr_accessor :balance
-  attr_accessor :interest_rate
-  attr_accessor :deposit
-  attr_accessor :withdrawl
-
-  def balance_deposit
-    new_balance1 = @balance.to_f + @deposit.to_f
-  end
-
-  def balance_withdrawl
-    new_balance2 = @balance.to_f - @withdrawl.to_f
-  end
-
-  def effective_interest
-    int_rate = (((@interest_rate.to_f)/100)+1)
-  end
+  #attr_accessor :interest_rate
 
 
-  def your_balance_total
-    balance_total = @balance.to_f + @deposit.to_f - @withdrawl.to_f
+    def initialize
+        @balance = 1000
+    end
 
-    "Your balance is $#{balance_total}"
+    def deposit(amount)
+      @balance = @balance + amount
+    end
 
-     final_balance = balance_total * effective_interest
+    def withdrawl(amount)
+      @balance = @balance - amount
+    end
 
-    "Your balance after interest is applied is $#{final_balance}"
-  end
+    def interest_rate(amount)
+      @balance = @balance * (((amount.to_f)/100)+1)
+    end
+
 end
 
+cheq_acct = BankAccount.new
+cheq_acct.deposit(900)
+cheq_acct.withdrawl(400)
+cheq_acct.interest_rate(3)
+puts "your balance is $#{ cheq_acct.balance }"
+
+# balance = BankAccount.new
+# interest_rate = BankAccount.new
+# deposit = BankAccount.new
+# withdrawl = BankAccount.new
 
 # @ for instance variables
 # #balance is set at 900
-# deposit is set at 900
-# withdrawl is set at 300
+# deposit is set at 400
+# withdrawl is set at 400
 # interest is at 1.5 %
