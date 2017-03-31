@@ -12,8 +12,6 @@ class BankAccount
     end
 
     def withdrawl(amount)
-      if @balance - amount < 0
-        puts "Insufficient funds for this amount"
       @balance = @balance - amount
     end
 
@@ -28,7 +26,6 @@ cheq_acct.deposit(900)
 cheq_acct.withdrawl(400)
 cheq_acct.interest_rate(3)
 puts "your balance is $#{ cheq_acct.balance }"
-
 
 # balance = BankAccount.new
 # interest_rate = BankAccount.new
