@@ -3,9 +3,6 @@ class Cats
   attr_accessor :name
   attr_accessor :preferred_food
   attr_accessor :meal_time
-  cat1 = Cats.new("Gary", "Tuna", 16)
-  cat2 = Cats.new("Bruce", "Chicken", 12)
-  cat3 = Cats.new("Reese", "Beef", 6)
 
   def initialize(name, preferred_food, meal_time)
     @name = name
@@ -16,6 +13,8 @@ class Cats
   def eats_at
     if @meal_time.to_i < 12
       return "#{meal_time} AM"
+    elsif @meal_time.to_i == 12
+      return "#{meal_time} PM"
     else
       return "#{@meal_time.to_i - 12} PM"
     end
@@ -26,3 +25,10 @@ class Cats
   end
 
 end
+
+
+
+
+# cat1 = Cats.new("Gary", "Tuna", 16)
+# cat2 = Cats.new("Bruce", "Chicken", 12)
+# cat3 = Cats.new("Reese", "Beef", 6)
