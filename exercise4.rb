@@ -6,21 +6,39 @@ class PaperBoy
 
   def initialize(name, experience, delivered)
     @name = name
-    @experience = ((experience/2)+50)
-    @delivered = delivered
-    @earning = earning
+    @experience = (experience/2)+50
+    @delivered = delivered.to_i
+    @quota = 50
   end
 
-  def paper_delivered
-    if
+  def delivery(start_number, end_number)
+    if start_number > end_number
+      print "ERROR: Starting House is larger than Ending House"
+    elsif (end_number - start_number) < @quota
+      print "ERROR: Minimum Quota not reached!"
+    else
+      return end_number - start_number
+      #return delivery.span
+    end
   end
 
-  def paper_bonus
-
+  def based_pay
+    if @delivered >= @experience
+      print "Your base pay is #{@delivered*0.25}"
+    else
+     print "Your base pay is #{(@delivered*0.25)-2}"
+  end
   end
 
-  def houses
+  # def paper_bonus
+  #   if @delivered < @
+  #   else
+  #     (@delivered.to_f-50) * 0.50
+  #   end
+  # end
 
+  def total_earning
+    print "Your earning is #{paper_bonus}"
   end
 
 end
